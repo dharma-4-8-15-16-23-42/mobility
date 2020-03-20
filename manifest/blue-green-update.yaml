@@ -1,0 +1,41 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mobility-deployment-v0.0.2
+  labels:
+    app: mobility
+    version: v0.0.2
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app: mobility
+      version: v0.0.2
+  template:
+    metadata:
+      labels:
+        app: mobility
+        version: v0.0.2
+    spec:
+      containers:
+      - name: mobility
+        image: dharma4815162342/mobility:v0.0.2
+        ports:
+        - containerPort: 80
+        livenessProbe:
+          httpGet:
+            path: /version
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        resources:
+          limits:
+            memory: 128Mi
+          requests:
+            memory: 64Mi

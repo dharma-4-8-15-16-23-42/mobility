@@ -53,6 +53,10 @@ The development server can be reached at: [localhost:5000](http://localhost:5000
 foo@bar:~$ docker run -p 80:80 dharma4815162342/mobility:v0.0.1
 ```
 
+## Deployment
+
+Kubernetes deployment manifests and instructions are available in the `manifest` subdirectory.
+
 ## External Links
 
 [Dockerhub build pipeline](https://hub.docker.com/repository/docker/dharma4815162342/mobility/builds).
