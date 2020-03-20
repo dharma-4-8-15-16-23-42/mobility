@@ -19,6 +19,16 @@ foo@bar:~$ pipenv install --dev
 
 ## Build
 
+### Versioning
+
+To release a new version, make sure all changes are commited and run:
+
+```console
+foo@bar:~$ pipenv run bump2version patch
+```
+
+### Docker Image
+
 To build a production ready Docker image:
 
 ```console
